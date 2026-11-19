@@ -3,10 +3,10 @@
   --navy: #061726;
   --navy-2: #0a2033;
   --steel: #18354f;
-  --gold: #d7a936;
-  --gold-light: #f0cb67;
-  --silver: #eef2f5;
-  --muted: #a9b8c6;
+  --gold: #f1c843;
+  --gold-light: #ffda5a;
+  --silver: #ffffff;
+  --muted: #edf3fa;
   --line: rgba(155, 187, 211, .28);
 }
 
@@ -44,6 +44,15 @@ body {
   pointer-events: none;
   background: linear-gradient(90deg, rgba(255,255,255,.025), transparent 25%, rgba(255,255,255,.018) 50%, transparent 72%);
   mix-blend-mode: screen;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("front-y.png") center 9rem / 125% auto no-repeat;
+  opacity: .45;
 }
 
 .brand, .identity, .actions, .notice { position: relative; z-index: 1; }
@@ -91,7 +100,7 @@ body {
 
 .slashes { position: absolute; right: 26%; bottom: -.65rem; color: var(--gold); letter-spacing: -.1em; }
 
-.identity { padding: 1.3rem .95rem 1.75rem; }
+.identity { padding: .5rem .95rem 1.75rem; }
 
 h1 {
   margin: 0;
@@ -123,7 +132,7 @@ h1 {
   border-radius: .72rem;
   background:
     repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px),
-    linear-gradient(100deg, rgba(17,49,73,.72), rgba(4,21,35,.88));
+    linear-gradient(100deg, rgba(17,49,73,.52), rgba(4,21,35,.72));
   box-shadow: inset 0 1px rgba(255,255,255,.035), 0 .35rem .9rem rgba(0,0,0,.16);
   transition: border-color .18s ease, transform .18s ease, background .18s ease;
 }
@@ -144,27 +153,26 @@ a.action:hover, a.action:focus-visible { border-color: rgba(240,203,103,.75); ba
 
 .linkedin { font-weight: 700; font-size: 1.25rem; }
 .action-text { min-width: 0; overflow-wrap: anywhere; font-size: clamp(1rem, 4.2vw, 1.25rem); }
-.chevron, .download { justify-self: end; color: var(--gold-light); font-size: 2.1rem; font-weight: 300; }
+.chevron { display: none; }
+.download { justify-self: end; color: var(--gold-light); font-size: 2.1rem; font-weight: 300; }
 
 .save {
-  color: #071321;
-  border-color: #f1cd63;
-  background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, rgba(80,50,0,.025) 1px 3px),
-    linear-gradient(110deg, #e6bb4d, #f0cf74 50%, #b9841d);
+  color: var(--silver);
+  border-color: var(--gold);
+  background: rgba(12, 35, 56, .85);
   font-weight: 600;
 }
 
-.save .icon { color: #071321; border-color: rgba(7,19,33,.42); }
-.save .download { color: #071321; }
+.save .icon { color: var(--gold-light); border-color: var(--line); }
+.save .download { color: var(--gold-light); }
 .static { cursor: default; }
 .portfolio .action-text { display: grid; gap: .15rem; }
 .portfolio small { color: var(--gold-light); font-size: .78em; }
 
 .notice {
   margin: 1.1rem .65rem 0;
-  color: #8799a8;
-  font-size: .76rem;
+  color: #cad5e0;
+  font-size: .875rem;
   line-height: 1.45;
   text-align: center;
 }
