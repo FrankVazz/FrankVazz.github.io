@@ -115,7 +115,7 @@ h1 {
 
 .accent-line { display: block; width: 3.2rem; height: 2px; margin: 1.45rem 0 1.25rem; background: var(--gold); }
 
-.doctrine { margin: 0; color: var(--gold-light); font-size: clamp(1.05rem, 4.5vw, 1.35rem); }
+.doctrine { margin: 0; color: var(--gold-light); font-size: clamp(1.05rem, 4.5vw, 1.35rem); font-style: italic; }
 
 .actions { display: grid; gap: .72rem; }
 
@@ -184,4 +184,27 @@ a.action:hover, a.action:focus-visible { border-color: rgba(240,203,103,.75); ba
 
 @media (prefers-reduced-motion: reduce) {
   .action { transition: none; }
+}
+
+.navigation-loader[hidden] { display: none; }
+.navigation-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(3, 14, 24, .95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--gold-light);
+}
+.navigation-loader > span:first-child {
+  font-size: 3rem;
+  filter: grayscale(1) sepia(1) saturate(5);
+  animation: spiral-turn 1s linear infinite;
+}
+@keyframes spiral-turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .navigation-loader > span:first-child { animation: none; }
 }
